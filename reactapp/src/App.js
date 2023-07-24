@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+
+
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Login from './login';
+import Signup from './signup';
+import ColorSchemesExample from "./navbar";
+import Home from "./pages/home";
+import Insurance from "./insurance";
+import Policy from "./pages/policy";
+import Claim from "./pages/claim";
+import YourComponent from "./container";
+import store from "./Strore";
+import { Provider } from "react-redux";
+import Renew from "./pages/renew";
+import Profile from "./pages/profile";
+import Newregister from "./updatedetails";
+import Apply from "./pages/applyinsurance";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  
+    
+    <Provider store={store}>
+    
+    <Router>
+      <Routes>
+      <Route path="/" element={<YourComponent />} />
+     
+     
+      <Route path="/home" element={<Home />} />
+      <Route path="/insurance" element={<Insurance />} />
+      <Route path="/policy" element={<Policy />} />
+      <Route path="/claim" element={<Claim />} />
+      <Route path="/renew" element={<Renew />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/newregister" element={<Newregister />} />
+        <Route path="/apply" element={<Apply />} />
+
+
+      
+
+      </Routes>
+    </Router>
+    </Provider>
+    
   );
 }
 
 export default App;
+
